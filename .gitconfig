@@ -3,14 +3,12 @@
 	email = m.fuad.rafi@gmail.com
 	# email = 68302816+rafisics@users.noreply.github.com
 [credential "https://git.overleaf.com"]
-	username = m.fuad.rafi@gmail.com
-        helper = store
+	username = git
+    helper = store
 [safe]
 	directory = /mnt/d/My_Writings
-	directory = /mnt/d/Physics Books/Academic Study Notes/DU Theoretical Physics/TPG 550: GRC - Arshad sir/gr-lecture-notes
-	directory = /mnt/d/manim/manim_projects
 [credential]
-	helper = cache
+	helper = store
 
 [includeIf "gitdir:~/.config/"]
     path = .gitconfig-private

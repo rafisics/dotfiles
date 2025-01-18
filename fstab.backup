@@ -1,0 +1,19 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during curtin installation
+/dev/disk/by-uuid/7ddb6862-0cd8-4706-a0c3-9df915915e35 / ext4 defaults 0 1
+# /boot/efi was on /dev/sda2 during curtin installation
+/dev/disk/by-uuid/3AE2-0A30 /boot/efi vfat defaults 0 1
+# /mnt/d was on /dev/sda3 during curtin installation
+# /mnt/e was on /dev/sda4 during curtin installation
+# /mnt/f was on /dev/sda5 during curtin installation
+/swap.img	none	swap	sw	0	0
+/dev/disk/by-uuid/9c420c45-49eb-4e7a-b07e-9c63dc5d78ce /mnt/d ext4 nosuid,nodev,nofail,x-gvfs-show,x-gvfs-name=D-drive 0 0
+/dev/disk/by-uuid/3eb7bd98-ae95-49f9-bf6c-e9fdc54e2bd9 /mnt/e ext4 nosuid,nodev,nofail,x-gvfs-show,x-gvfs-name=E-drive 0 0
+/dev/disk/by-uuid/bfedb7a1-98c7-43fd-9fa0-9da8b3d8a6c8 /mnt/f ext4 nosuid,nodev,nofail,x-gvfs-show,x-gvfs-name=F-drive 0 0
+/dev/disk/by-uuid/0CA7BB9A3375A5F5 /mnt/ssd-ext ntfs-3g defaults,uid=1000,gid=1000,dmask=000,fmask=000,nosuid,nodev,nofail,x-gvfs-show,noauto,x-gvfs-name=SSD-ext 0 0

@@ -8,10 +8,11 @@ Built on [NvChad](https://nvchad.com/) v2. Entry point: `.config/nvim/init.lua`.
 
 | Plugin | Purpose |
 |---|---|
-| **nvim-lspconfig** + **mason.nvim** | LSP — lua, texlab/bibtex-tidy |
-| **conform.nvim** | Formatting |
+| **nvim-lspconfig** + **mason.nvim** | LSP — lua-language-server, html, cssls |
+| **conform.nvim** | Formatting (stylua, bibtex-tidy) |
 | **nvim-treesitter** | Syntax highlighting |
 | **nvim-cmp** + **LuaSnip** | Completion + snippets |
+| **telescope.nvim** | Fuzzy finder — files, buffers, live grep |
 | **vimtex** | LaTeX editing (compile, synctex, cmp source) |
 | **gitsigns.nvim** | Git diff in gutter |
 | **lazygit.nvim** | LazyGit TUI inside nvim |
@@ -67,8 +68,8 @@ Leader key: `Space`
 ## Config switching
 
 Two configs are maintained:
-- **NvChad** (`~/.config/nvim/`) — main config
-- **NeoTeX** (`~/.config/nvim.bak/`) — LaTeX-focused config
+- **NvChad** (`~/.config/nvim/`) — main config, tracked in this repo
+- **NeoTeX** (`~/.config/nvim.bak/`) — LaTeX-focused config, **not tracked here** (lives only locally)
 
 Switch via fish shell:
 ```fish

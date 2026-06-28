@@ -5,12 +5,12 @@ Personal dotfiles for Ubuntu GNOME (X11), managed with [GNU Stow](https://www.gn
 ## Install on a fresh machine
 
 ```bash
-git clone https://github.com/<your-username>/dotfiles.git ~/dotfiles
+git clone https://github.com/rafisics/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 bash install.sh
 ```
 
-Then follow [SETUP.md](system/SETUP.md) (if present) or `ubuntu-setup` repo for manual steps.
+Then see [system/KEYBOARD-SHORTCUTS.md](system/KEYBOARD-SHORTCUTS.md) for GNOME keybinding restore and [system/dpkg/manual-packages.txt](system/dpkg/manual-packages.txt) for the package list.
 
 ## Packages
 
@@ -26,18 +26,11 @@ Then follow [SETUP.md](system/SETUP.md) (if present) or `ubuntu-setup` repo for 
 | `zathura` | Zathura PDF viewer + themes | — |
 | `yazi` | Yazi file manager (catppuccin theme) | — |
 | `btop` | btop resource monitor | — |
-| `i3` | i3 WM *(archived — not stowed on GNOME)* | [Shortcuts](system/KEYBOARD-SHORTCUTS.md#i3) |
+| `i3` | i3 WM *(archived — not stowed on GNOME)* | [Shortcuts](system/KEYBOARD-SHORTCUTS.md#i3-keybindings-archived--not-active-on-gnome) |
 | `polybar` | Polybar *(archived — not stowed on GNOME)* | — |
 | `picom` | Picom compositor *(archived — not stowed on GNOME)* | — |
 
-## Documentation
-
-| Doc | Contents |
-|---|---|
-| [nvim/README.md](nvim/README.md) | Plugin list, all key mappings, config switching |
-| [fish/README.md](fish/README.md) | All custom fish commands with usage |
-| [rofi/README.md](rofi/README.md) | Rofi setup + rofi-zotero integration |
-| [system/KEYBOARD-SHORTCUTS.md](system/KEYBOARD-SHORTCUTS.md) | GNOME + fish + nvim keyboard shortcuts |
+> i3/polybar/picom packages are kept for reference or non-GNOME machines. `install.sh` does not stow them by default.
 
 ## System setup
 
@@ -45,17 +38,16 @@ Then follow [SETUP.md](system/SETUP.md) (if present) or `ubuntu-setup` repo for 
 - `dpkg/manual-packages.txt` — manually installed packages
 - `gnome/` — GNOME dconf exports (full settings, keybindings, extensions)
 - `img/` — screenshots of GNOME extension settings
+- `KEYBOARD-SHORTCUTS.md` — all keybindings documented
 
-Restore GNOME settings on a new machine:
+Restore GNOME keybindings on a new machine:
 ```bash
-# All keybindings at once
 dconf load /org/gnome/desktop/wm/keybindings/       < system/gnome/keybindings/wm.dconf
 dconf load /org/gnome/shell/keybindings/            < system/gnome/keybindings/shell.dconf
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < system/gnome/keybindings/media-keys.dconf
-
-# Full GNOME settings (careful — overwrites everything)
-dconf load /org/gnome/ < system/gnome/full-settings.dconf
 ```
+
+Or just run the fish function: `load_gnome_settings`
 
 ## Private git identity
 
@@ -64,7 +56,7 @@ Copy the example and fill it in:
 
 ```bash
 cp git/.gitconfig-private.example git/.gitconfig-private
-# edit git/.gitconfig-private with your email
+# edit with your email
 stow git
 ```
 
@@ -74,9 +66,4 @@ stow git
 mkdir -p <app>/.config/<app>
 # copy config files in
 stow <app>
-```
-
-To stow a WM package on an i3 machine:
-```bash
-stow i3 polybar picom
 ```

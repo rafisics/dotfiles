@@ -2,6 +2,8 @@
 
 [Rofi](https://github.com/davatorium/rofi) application launcher, configured with a custom theme and integrated with Zotero.
 
+![rofi-zotero demo](https://rafisics.github.io/assets/images/2025-01-24-zotero/rofi-zotero-preview.gif)
+
 ## Configs
 
 | File | Purpose |
@@ -11,7 +13,7 @@
 | `.config/rofi-zotero/rofi-zotero.py` | Zotero attachment launcher script |
 | `.config/rofi-zotero/themes/` | Zotero-specific rofi themes |
 
-## GNOME keybinding
+## GNOME keybindings
 
 | Shortcut | Action |
 |---|---|
@@ -22,13 +24,14 @@
 
 Searches your Zotero library and opens PDF/DjVu attachments directly from a rofi popup.
 
-> For full Zotero setup context, see my blog post: [Becoming a Zoteroist](https://rafisics.github.io/posts/zotero/)
+> For the full Zotero workflow context, see: [Becoming a Zoteroist](https://rafisics.github.io/tools/zotero/)
 
 ### Usage
 
 ```bash
-# Simple launch (GNOME shortcut: Super+Z)
-~/.config/rofi-zotero/rofi-zotero.py --rofi-args="-i -theme ~/.config/rofi-zotero/themes/zotero-theme.rasi"
+# Simple launch (bound to Super+Z via GNOME custom shortcut)
+~/.config/rofi-zotero/rofi-zotero.py \
+  --rofi-args="-i -theme ~/.config/rofi-zotero/themes/zotero-theme.rasi"
 
 # With a specific Zotero profile
 ~/.config/rofi-zotero/rofi-zotero.py -p myprofile
@@ -39,14 +42,19 @@ Searches your Zotero library and opens PDF/DjVu attachments directly from a rofi
 
 ### Setup on a new machine
 
-1. Install Zotero and ensure its SQLite database exists at `~/Zotero/zotero.sqlite`
+1. Install Zotero — its SQLite database must exist at `~/Zotero/zotero.sqlite`
 2. The script auto-detects the default Zotero profile
-3. Wire up the GNOME shortcut (see [KEYBOARD-SHORTCUTS.md](../system/KEYBOARD-SHORTCUTS.md)):
+3. Restore the GNOME shortcut from dconf:
+   ```bash
+   dconf load /org/gnome/settings-daemon/plugins/media-keys/ \
+     < ~/dotfiles/system/gnome/keybindings/media-keys.dconf
    ```
-   Command: /home/<user>/.config/rofi-zotero/rofi-zotero.py --rofi-args="-i -theme /home/<user>/.config/rofi-zotero/themes/zotero-theme.rasi"
+   Or wire it up manually in **Settings → Keyboard → Custom Shortcuts** with:
+   ```
+   Command: /home/<user>/.config/rofi-zotero/rofi-zotero.py \
+              --rofi-args="-i -theme /home/<user>/.config/rofi-zotero/themes/zotero-theme.rasi"
    Shortcut: Super+Z
    ```
-4. Restore from dconf: `dconf load /org/gnome/settings-daemon/plugins/media-keys/ < ~/dotfiles/system/gnome/keybindings/media-keys.dconf`
 
 ### Requirements
 

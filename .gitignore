@@ -1,5 +1,4 @@
 # Credentials — never commit
-.git-credentials
 git/.git-credentials
 
 # Private git identity

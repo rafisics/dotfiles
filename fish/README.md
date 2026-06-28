@@ -10,7 +10,7 @@ Functions: `.config/fish/functions/`
 - `EDITOR` = `nvim`
 - `zoxide` is lazy-initialized (replaces `cd` via `zoxide init fish --cmd cd`)
 - Starship is initialized in the background on shell start
-- `Ctrl+T` mapping removed (used by NvChad as terminal toggle)
+- `Ctrl+T` removed — prevents fish from capturing it when inside a NeoVim terminal buffer
 - `Ctrl+A` → launches `nvims` config picker (defined in `nvim.fish`)
 - Ruby gems path added if `bundle` is available
 - Sources `~/.config/nvim.fish` on every interactive shell (nvim helper functions)

@@ -1,10 +1,10 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    -- config = function()
-    --   require "configs.conform"
-    -- end,
+    -- event = 'BufWritePre', -- uncomment to enable format on save
+    config = function()
+      require "configs.conform"
+    end,
   },
 
   -- These are some examples, uncomment them if you want to see them work!
@@ -21,9 +21,10 @@ return {
   	opts = {
   		ensure_installed = {
   			"lua-language-server", "stylua",
-  			--"html-lsp", "css-lsp" , "prettier"
-        -- "texlab",      - using nvim-cmp instead of texlab
-        "bibtex-tidy" 
+  			"pyright", "black", "isort",
+  			-- "html-lsp", "css-lsp", "prettier"
+  			-- "texlab" -- using cmp-vimtex instead
+  			"bibtex-tidy",
   		},
   	},
   },

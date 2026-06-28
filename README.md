@@ -27,6 +27,7 @@ Then see [system/KEYBOARD-SHORTCUTS.md](system/KEYBOARD-SHORTCUTS.md) for GNOME 
 | `zathura` | Zathura PDF viewer + themes | — |
 | `yazi` | Yazi file manager (catppuccin theme) | — |
 | `btop` | btop resource monitor | — |
+| `wallpaper` | Wallpaper at `~/.config/background` + `~/.local/share/backgrounds/` (1920×1080, resized from original) | — |
 | `i3` | i3 WM *(archived — not stowed on GNOME)* | [Shortcuts](system/KEYBOARD-SHORTCUTS.md#i3-keybindings-archived--not-active-on-gnome) |
 | `polybar` | Polybar *(archived — not stowed on GNOME)* | — |
 | `picom` | Picom compositor *(archived — not stowed on GNOME)* | — |
@@ -40,6 +41,7 @@ Then see [system/KEYBOARD-SHORTCUTS.md](system/KEYBOARD-SHORTCUTS.md) for GNOME 
 - `gnome/` — GNOME dconf exports (full settings, keybindings, extensions)
 - `img/` — screenshots of GNOME extension settings
 - `KEYBOARD-SHORTCUTS.md` — all keybindings documented
+- `THEME.md` — GTK theme, fonts, wallpaper, extension restore guide
 
 Restore GNOME keybindings on a new machine:
 ```bash

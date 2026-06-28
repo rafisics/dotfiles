@@ -27,6 +27,7 @@ PACKAGES=(
     zathura
     yazi
     btop
+    wallpaper
 )
 
 # WM packages — only stow on i3 machines, skip on GNOME

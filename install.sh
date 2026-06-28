@@ -59,7 +59,7 @@ PACKAGES=(
     bash
     git
     nvim
-    nvim-bak
+    nvim-tex
     fish
     starship
     kitty

@@ -67,7 +67,7 @@ end
 # Neovim config switch - https://youtu.be/LkHjJlSgKZY - https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b?permalink_comment_id=5312460#gistcomment-5312460
 
 function nvim-tex
-    env NVIM_APPNAME=nvim.bak nvim
+    env NVIM_APPNAME=nvim-tex nvim
 end
 
 function nvims
@@ -79,7 +79,7 @@ function nvims
     else if [ $config = "NvChad" ]
         set config ""
     else if [ $config = "NeoTeX" ]
-        set config "nvim.bak"
+        set config "nvim-tex"
     end
     env NVIM_APPNAME=$config nvim $argv
 end

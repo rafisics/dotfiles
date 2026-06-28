@@ -32,7 +32,7 @@ Two tools are installed manually (not via apt):
 | `bash` | `.bashrc`, `.bash_profile`, `.bash_logout`, `.stow-global-ignore` | — |
 | `git` | `.gitconfig` (identity, credential helper) | — |
 | `nvim` | Neovim (NvChad) + `nvim.fish` helper functions | [nvim/README.md](nvim/README.md) |
-| `nvim-bak` | NeoTeX — LaTeX-focused config (benbrastmckie/nvim) | [nvim-bak/README.md](nvim-bak/README.md) |
+| `nvim-tex` | NeoTeX — LaTeX-focused config (benbrastmckie/nvim) | [nvim-tex/README.md](nvim-tex/README.md) |
 | `fish` | Fish shell — config, functions, variables | [fish/README.md](fish/README.md) |
 | `starship` | Three prompt configs, switch with `starships` | [starship/README.md](starship/README.md) |
 | `kitty` | Kitty terminal | — |

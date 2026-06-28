@@ -19,10 +19,12 @@
 # Yaru theme (GTK + icons + shell)
 sudo apt install yaru-theme-gtk yaru-theme-icon yaru-theme-gnome-shell
 
-# Fonts
-sudo apt install fonts-ubuntu
-# RobotoMono Nerd Font — download from https://www.nerdfonts.com/font-downloads
-# Extract to ~/.local/share/fonts/ then: fc-cache -fv
+# System fonts (Ubuntu Sans, JetBrains Mono, Roboto, FiraCode)
+sudo apt install fonts-ubuntu fonts-jetbrains-mono fonts-roboto fonts-firacode
+
+# RobotoMono Nerd Font (not in apt — download from https://www.nerdfonts.com/font-downloads)
+# Iosevka Nerd Font, GrapeNuts, Icomoon-Feather, Kalpurush — install manually to ~/.local/share/fonts/
+# After placing font files: fc-cache -fv
 ```
 
 ### 2. Restore wallpaper

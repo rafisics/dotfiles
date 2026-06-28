@@ -39,9 +39,9 @@ Functions: `.config/fish/functions/`
 ### System
 | Command | What it does |
 |---|---|
-| `backup_packages` | Export dpkg package lists to `~/github/ubuntu-setup/dpkg/` (all, installed, manual) |
-| `dump_gnome_settings` | Export GNOME dconf + keybindings to `~/github/ubuntu-setup/gnome/` |
-| `load_gnome_settings` | Restore GNOME keybindings from `~/github/ubuntu-setup/gnome/` |
+| `backup_packages` | Export dpkg package lists to `~/dotfiles/system/dpkg/` (all, installed, manual) |
+| `dump_gnome_settings` | Export GNOME dconf + keybindings to `~/dotfiles/system/gnome/` |
+| `load_gnome_settings` | Restore GNOME keybindings from `~/dotfiles/system/gnome/` |
 | `toggle_screen` | Extend screen via xrandr and start x11vnc for remote viewing of the right half |
 | `warpcli` | fzf picker to connect/disconnect Cloudflare WARP |
 | `fastfetch` | Wrapper around `fastfetch` — if a preset name is given (e.g. `fastfetch minimal`), loads `~/.config/fastfetch/presets/<name>.jsonc` |
@@ -61,6 +61,6 @@ Functions: `.config/fish/functions/`
 | `toggle_screen` | `xrandr`, `x11vnc` |
 | `warpcli` | `warp-cli` (Cloudflare WARP) |
 | `load-astro`, `arxiv` | `~/github/my-scripts/` repo |
-| `backup_packages`, `dump_gnome_settings`, `load_gnome_settings` | `~/github/ubuntu-setup/` repo |
+| `backup_packages`, `dump_gnome_settings`, `load_gnome_settings` | `~/dotfiles/system/` |
 | `y` | `yazi` |
 | `starships` | `fzf` |

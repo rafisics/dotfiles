@@ -2,7 +2,7 @@
 
 [Rofi](https://github.com/davatorium/rofi) application launcher, configured with a custom theme and integrated with Zotero.
 
-> **TODO:** add screenshot of `rofi -show drun` launcher here
+![Rofi app launcher](images/rofi-drun.png)
 
 ## Configs
 

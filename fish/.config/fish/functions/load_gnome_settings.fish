@@ -1,5 +1,5 @@
 function load_gnome_settings
-    set dir ~/github/ubuntu-setup
+    set dir ~/dotfiles/system
     cd $dir
 
     # Load keybinding-related settings

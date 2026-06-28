@@ -1,7 +1,7 @@
 [Extensions]
-window-height=1
+window-height=100
 window-maximized=true
-window-width=148
+window-width=270
 
 [Snapshot]
 capture-mode='picture'
@@ -40,7 +40,7 @@ window-size=(360, 491)
 word-size=64
 
 [control-center]
-last-panel='power'
+last-panel='keyboard'
 window-state=(360, 294, true)
 
 [deja-dup]
@@ -71,8 +71,8 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/rafi/.config/background'
-picture-uri-dark='file:///home/rafi/.config/background'
+picture-uri='file:///home/rafi/.local/share/backgrounds/2025-01-05-05-20-03-sajek-2024.jpg'
+picture-uri-dark='file:///home/rafi/.local/share/backgrounds/2025-01-05-05-20-03-sajek-2024.jpg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -104,7 +104,7 @@ monospace-font-name='Ubuntu Sans Mono 11'
 show-battery-percentage=true
 
 [desktop/notifications]
-application-children=['google-chrome', 'com-cloudflare-warptaskbar', 'gnome-power-panel', 'org-gnome-texteditor', 'org-gnome-terminal-preferences', 'org-gnome-nautilus', 'zotero', 'dropbox', 'apport-gtk', 'openbangla-keyboard', 'org-gnome-terminal', 'org-gnome-software', 'org-gnome-tweaks', 'org-gnome-totem', 'org-gnome-shell-extensions', 'org-gnome-screenshot', 'org-gnome-eog', 'org-gnome-extensions', 'kitty', 'org-gnome-settings', 'zoom', 'org-pwmt-zathura', 'code', 'org-flameshot-flameshot', 'org-gnome-dejadup', 'firefox', 'gimp', 'org-gnome-characters', 'brave-browser', 'org-gnome-diskutility', 'org-gnome-baobab', 'ca-desrt-dconf-editor', 'io-github-cboxdoerfer-fsearch', 'realvnc-vncserverui-service', 'gdebi', 'rofi', 'com-obsproject-studio', 'putty', 'org-gnome-evince', 'com-mattjakeman-extensionmanager', 'com-uploadedlobster-peek', 'screenkey', 'libreoffice-writer', 'update-manager']
+application-children=['google-chrome', 'com-cloudflare-warptaskbar', 'gnome-power-panel', 'org-gnome-texteditor', 'org-gnome-terminal-preferences', 'org-gnome-nautilus', 'zotero', 'dropbox', 'apport-gtk', 'openbangla-keyboard', 'org-gnome-terminal', 'org-gnome-software', 'org-gnome-tweaks', 'org-gnome-totem', 'org-gnome-shell-extensions', 'org-gnome-screenshot', 'org-gnome-eog', 'org-gnome-extensions', 'kitty', 'org-gnome-settings', 'zoom', 'org-pwmt-zathura', 'code', 'org-flameshot-flameshot', 'org-gnome-dejadup', 'firefox', 'gimp', 'org-gnome-characters', 'brave-browser', 'org-gnome-diskutility', 'org-gnome-baobab', 'ca-desrt-dconf-editor', 'io-github-cboxdoerfer-fsearch', 'realvnc-vncserverui-service', 'gdebi', 'rofi', 'com-obsproject-studio', 'putty', 'org-gnome-evince', 'com-mattjakeman-extensionmanager', 'com-uploadedlobster-peek', 'screenkey', 'libreoffice-writer', 'update-manager', 'brave-mdpkiolbdkhdjpekfbkbmhigcaggjagi-default', 'libreoffice-impress', 'libreoffice-calc', 'codium']
 show-banners=true
 show-in-lock-screen=false
 
@@ -114,11 +114,17 @@ application-id='apport-gtk.desktop'
 [desktop/notifications/application/brave-browser]
 application-id='brave-browser.desktop'
 
+[desktop/notifications/application/brave-mdpkiolbdkhdjpekfbkbmhigcaggjagi-default]
+application-id='brave-mdpkiolbdkhdjpekfbkbmhigcaggjagi-Default.desktop'
+
 [desktop/notifications/application/ca-desrt-dconf-editor]
 application-id='ca.desrt.dconf-editor.desktop'
 
 [desktop/notifications/application/code]
 application-id='code.desktop'
+
+[desktop/notifications/application/codium]
+application-id='codium.desktop'
 
 [desktop/notifications/application/com-cloudflare-warptaskbar]
 application-id='com.cloudflare.WarpTaskbar.desktop'
@@ -155,6 +161,12 @@ application-id='io.github.cboxdoerfer.FSearch.desktop'
 
 [desktop/notifications/application/kitty]
 application-id='kitty.desktop'
+
+[desktop/notifications/application/libreoffice-calc]
+application-id='libreoffice-calc.desktop'
+
+[desktop/notifications/application/libreoffice-impress]
+application-id='libreoffice-impress.desktop'
 
 [desktop/notifications/application/libreoffice-writer]
 application-id='libreoffice-writer.desktop'
@@ -290,6 +302,9 @@ workspace-names=@as []
 [eog/ui]
 sidebar=false
 
+[evince]
+document-directory=@ms 'file:///home/rafi/Downloads'
+
 [evince/default]
 continuous=true
 dual-page=false
@@ -297,12 +312,12 @@ dual-page-odd-left=true
 enable-spellchecking=true
 fullscreen=false
 inverted-colors=false
-show-sidebar=true
+show-sidebar=false
 sidebar-page='thumbnails'
 sidebar-size=216
 sizing-mode='free'
-window-ratio=(1.7549019607843137, 0.88257575757575757)
-zoom=1.4142135381698608
+window-ratio=(1.4329487498236111, 0.38128496596942596)
+zoom=1.3931406950399998
 
 [evolution-data-server]
 migrated=true
@@ -318,12 +333,12 @@ size=(671, 680)
 state=87168
 
 [gnome-screenshot]
-delay=10
+delay=5
 include-pointer=true
 last-save-directory='file:///home/rafi/Pictures/Screenshots'
 
 [gnome-system-monitor]
-current-tab='processes'
+current-tab='resources'
 maximized=true
 show-dependencies=false
 show-whose-processes='user'
@@ -357,10 +372,13 @@ workspaces-only-on-primary=true
 toggle-tiled-left=@as []
 toggle-tiled-right=@as []
 
+[nautilus/icon-view]
+default-zoom-level='medium'
+
 [nautilus/list-view]
 default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'date_modified', 'date_accessed', 'date_created', 'recency', 'detailed_type']
 default-visible-columns=['name', 'size', 'type', 'owner', 'permissions', 'date_modified']
-default-zoom-level='medium'
+default-zoom-level='small'
 use-tree-view=true
 
 [nautilus/preferences]
@@ -399,7 +417,7 @@ last-folder-path='/home/rafi/Pictures'
 last-folder-path='/home/rafi/.config'
 
 [portal/filechooser/rofi]
-last-folder-path='/home/rafi/Pictures/Screenshots'
+last-folder-path='/mnt/d/Data-Recovered/data drive 1'
 
 [portal/filechooser/update-notifier]
 last-folder-path='/mnt/d'
@@ -473,8 +491,8 @@ app-picker-layout=[{'software-properties-drivers.desktop': <{'position': <0>}>, 
 command-history=['r']
 disable-user-extensions=false
 disabled-extensions=['vscode-workspaces@prometheontechnologies.com', 'improved-workspace-indicator@michaelaquilina.github.io', 'desaturated-tray-icons@cr1337.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'task-up-ultralite@fthx', 'smart-auto-move@khimaros.com', 'miniview@thesecretaryofwar.com', 'extension-list@tu.berry', 'tophat@fflewddur.github.io', 'emoji-copy@felipeftn', 'ubuntu-dock@ubuntu.com', 'openbar@neuromorph', 'simple-workspaces-bar@null-git', 'show_applications_instead_of_overview@fawtytoo', 'iworkspace-indicator@redscorpse.net', 'appmenu-is-back@fthx', 'forge@jmmaranan.com', 'openweather-extension@penguin-teal.github.io', 'worksets@blipk.xyz', 'compact-quick-settings@gnome-shell-extensions.mariospr.org', 'workspaces-by-open-apps@favo02.github.com', 'color-picker@tuberry', 'azclock@azclock.gitlab.com', 'hidetopbar@mathieu.bidon.ca', 'autohide-battery@sitnik.ru']
-enabled-extensions=['ding@rastersoft.com', 'tiling-assistant@ubuntu.com', 'CustomizeClockOnLockScreen@pratap.fastmail.fm', 'caffeine@patapon.info', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'AlphabeticalAppGrid@stuarthayhurst', 'bluetooth-quick-connect@bjarosze.gmail.com', 'clipboard-indicator@tudmotu.com', 'tactile@lundal.io', 'allowlockedremotedesktop@kamens.us', 'dash-to-dock@micxgx.gmail.com', 'just-perfection-desktop@just-perfection', 'LeftClock@adityashrivastava.tk', 'space-bar@luchrioh', 'gnome-compact-top-bar@metehan-arslan.github.io', 'desktop-cube@schneegans.github.com', 'window-title-is-back@fthx', 'fullscreen-avoider@noobsai.github.com', 'blur-my-shell@aunetx', 'pip-on-top@rafostar.github.com', 'batterytime@typeof.pw', 'ubuntu-appindicators@ubuntu.com', 'search-light@icedman.github.com']
-favorite-apps=['kitty.desktop', 'brave-browser.desktop', 'zotero.desktop', 'code.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.TextEditor.desktop', 'io.github.cboxdoerfer.FSearch.desktop']
+enabled-extensions=['ding@rastersoft.com', 'tiling-assistant@ubuntu.com', 'CustomizeClockOnLockScreen@pratap.fastmail.fm', 'caffeine@patapon.info', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'AlphabeticalAppGrid@stuarthayhurst', 'bluetooth-quick-connect@bjarosze.gmail.com', 'clipboard-indicator@tudmotu.com', 'tactile@lundal.io', 'allowlockedremotedesktop@kamens.us', 'dash-to-dock@micxgx.gmail.com', 'just-perfection-desktop@just-perfection', 'LeftClock@adityashrivastava.tk', 'space-bar@luchrioh', 'gnome-compact-top-bar@metehan-arslan.github.io', 'desktop-cube@schneegans.github.com', 'window-title-is-back@fthx', 'fullscreen-avoider@noobsai.github.com', 'blur-my-shell@aunetx', 'pip-on-top@rafostar.github.com', 'batterytime@typeof.pw', 'search-light@icedman.github.com', 'ubuntu-appindicators@ubuntu.com']
+favorite-apps=['kitty.desktop', 'brave-browser.desktop', 'zotero.desktop', 'codium.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Nautilus.desktop', 'io.github.cboxdoerfer.FSearch.desktop']
 last-selected-power-profile='power-saver'
 welcome-dialog-last-shown-version='46.0'
 
@@ -496,6 +514,7 @@ font-size=32
 name='Date Label'
 
 [shell/extensions/blur-my-shell]
+rounded-blur-found=false
 settings-version=2
 
 [shell/extensions/blur-my-shell/appfolder]
@@ -597,6 +616,9 @@ workspace-agnostic-urgent-windows=true
 [shell/extensions/ding]
 check-x11wayland=true
 show-home=false
+
+[shell/extensions/do-not-disturb-while-screen-sharing-or-recording]
+is-wayland=false
 
 [shell/extensions/emoji-copy]
 recently-used=['😂', '❤️', '😍', '😭', '😊', '😒', '😘', '😩', '🤔', '☺️', '👌']
@@ -736,7 +758,14 @@ winbcolor=['0.588', '0.647', '0.325']
 stick=true
 
 [shell/extensions/search-light]
+animation-speed=100.0
+blur-brightness=0.59999999999999998
+blur-sigma=30.0
+entry-font-size=1
 monitor-count=1
+preferred-monitor=0
+scale-height=0.10000000000000001
+scale-width=0.10000000000000001
 
 [shell/extensions/smart-auto-move]
 activate-workspace=true
@@ -878,7 +907,7 @@ switch-to-application-9=@as []
 locations=@av []
 
 [software]
-check-timestamp=int64 1758600700
+check-timestamp=int64 1782632896
 
 [terminal/legacy/keybindings]
 copy='<Primary><Shift>c'

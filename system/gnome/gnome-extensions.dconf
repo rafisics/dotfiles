@@ -16,6 +16,7 @@ font-size=32
 name='Date Label'
 
 [blur-my-shell]
+rounded-blur-found=false
 settings-version=2
 
 [blur-my-shell/appfolder]
@@ -117,6 +118,9 @@ workspace-agnostic-urgent-windows=true
 [ding]
 check-x11wayland=true
 show-home=false
+
+[do-not-disturb-while-screen-sharing-or-recording]
+is-wayland=false
 
 [emoji-copy]
 recently-used=['😂', '❤️', '😍', '😭', '😊', '😒', '😘', '😩', '🤔', '☺️', '👌']

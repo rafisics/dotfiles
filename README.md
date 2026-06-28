@@ -2,6 +2,15 @@
 
 Personal dotfiles for Ubuntu GNOME (X11), managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
+## Screenshots — [Earthy Minimalism](https://www.reddit.com/r/unixporn/comments/1kbpgr5/gnome_earthy_minimalism/)
+
+| | |
+|---|---|
+| ![Terminal — Fastfetch](screenshots/Screenshot_1.png) | ![Tiled terminals — Neovim + arXiv + tty-clock](screenshots/Screenshot_2.png) |
+| ![Tiled terminals — cmatrix + cbonsai](screenshots/Screenshot_3.png) | ![Neovim + Zathura](screenshots/Screenshot_4.png) |
+| ![Rofi app launcher](screenshots/Screenshot_5.png) | ![Rofi Zotero search](screenshots/Screenshot_6.png) |
+| ![Yazi file manager with preview](screenshots/Screenshot_7.png) | ![Brave Browser + Zotero](screenshots/Screenshot_8.png) |
+
 ## Install on a fresh machine
 
 ```bash
@@ -10,7 +19,11 @@ cd ~/dotfiles
 bash install.sh
 ```
 
-Then see [system/KEYBOARD-SHORTCUTS.md](system/KEYBOARD-SHORTCUTS.md) for GNOME keybinding restore and [system/dpkg/manual-packages.txt](system/dpkg/manual-packages.txt) for the package list.
+Then see [system/KEYBOARD-SHORTCUTS.md](system/KEYBOARD-SHORTCUTS.md) for GNOME keybinding restore and [system/dpkg/manual-packages.txt](system/dpkg/manual-packages.txt) for the full apt package list.
+
+Two tools are installed manually (not via apt):
+- **yazi** — file manager: [github.com/sxyazi/yazi](https://github.com/sxyazi/yazi) releases
+- **giph** — gif recorder: [github.com/phw/giph](https://github.com/phw/giph) (shell script, `screenkey` + `giph -s out.gif`)
 
 ## Packages
 
@@ -27,6 +40,9 @@ Then see [system/KEYBOARD-SHORTCUTS.md](system/KEYBOARD-SHORTCUTS.md) for GNOME 
 | `zathura` | Zathura PDF viewer + themes | — |
 | `yazi` | Yazi file manager (catppuccin theme) | — |
 | `btop` | btop resource monitor | — |
+| `fastfetch` | Fastfetch preset (`os-wm.jsonc`) — used in Screenshot 1 | — |
+| `screenkey` | Screenkey config (`~/.config/screenkey.json`) — font, opacity, position for keyboard overlay gifs | — |
+| `mimeapps` | Default application associations (`~/.config/mimeapps.list`) — Brave for web, etc. | — |
 | `wallpaper` | Wallpaper at `~/.config/background` + `~/.local/share/backgrounds/` (1920×1080, resized from original) | — |
 | `i3` | i3 WM *(archived — not stowed on GNOME)* | [Shortcuts](system/KEYBOARD-SHORTCUTS.md#i3-keybindings-archived--not-active-on-gnome) |
 | `polybar` | Polybar *(archived — not stowed on GNOME)* | — |

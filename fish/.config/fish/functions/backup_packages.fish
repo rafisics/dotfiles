@@ -1,5 +1,5 @@
 function backup_packages
-    set -l dir ~/github/ubuntu-setup/dpkg
+    set -l dir ~/dotfiles/system/dpkg
     echo "📦 Backing up package selections to $dir"
     mkdir -p $dir
 

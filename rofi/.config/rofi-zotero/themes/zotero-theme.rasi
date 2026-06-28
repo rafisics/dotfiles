@@ -1,0 +1,116 @@
+/* Rofi theme with single-column layout for Zotero */
+
+configuration {
+    show-icons:          false;
+    font:                "Roboto 11";
+    width:               600px;
+    lines:               6;
+    fixed-num-lines:     false;
+    case-sensitive:      false;
+}
+
+* {
+    background-color:       transparent;
+    text-color:             #F0F0F0;
+    border-color:           #4A4A4A;
+    selected-background:    #787859;
+    selected-text:          #D4D4D4;
+    placeholder-color:      #C0B499;
+    urgent-background:      #A54242;
+    urgent-text:            #FFFFFF;
+}
+
+window {
+    transparency:        "real";
+    background-color:    rgba(58, 58, 58, 0.9);
+    border:              1px;
+    border-radius:       0px;
+    padding:             8px;
+    width:               600px;
+}
+
+mainbox {
+    background-color:    transparent;
+    border:              0px;
+    padding:             0px;
+}
+
+num-filtered-rows {
+    expand:              false;
+    text-color:          @placeholder-color;
+}
+
+num-rows {
+    expand:              false;
+    text-color:          @placeholder-color;
+}
+
+textbox-num-sep {
+    expand:              false;
+    str:                 "/";
+    text-color:          @placeholder-color;
+}
+case-indicator {
+    spacing:             0;
+    text-color:          @text-color;
+}
+
+prompt {
+    spacing:             0;
+    text-color:          @text-color;
+}
+
+textbox-prompt-colon {
+    margin:              0px 0.3000em 0.0000em 0.0000em;
+    expand:              false;
+    str:                 ":";
+    text-color:          inherit;
+}
+
+entry {
+    placeholder:         "Type to filter resources";
+    placeholder-color:   @placeholder-color;
+    text-color:          @text-color;
+    padding-left:        5px;
+}
+
+inputbar {
+    background-color:    @selected-background;
+    border:              1px;
+    border-radius:       4px;
+    padding:             6px;
+    margin-bottom:       8px;
+    children: [ 
+        "prompt", 
+        "textbox-prompt-colon", 
+        "entry", 
+        "num-filtered-rows", 
+        "textbox-num-sep", 
+        "num-rows", 
+        "case-indicator" 
+    ];
+}
+
+listview {
+    border:              0px;
+    padding:             0px;
+    scrollbar:           false;
+}
+
+element {
+    border:              0px;
+    padding:             6px;
+    text-color:          @text-color;
+}
+
+element selected {
+    background-color:    @selected-background;
+    text-color:          @selected-text;
+    border-radius:       4px;
+}
+
+element-text {
+    background-color:    inherit;
+    text-color:          inherit;
+    vertical-align:      0.5;
+}

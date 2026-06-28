@@ -1,0 +1,391 @@
+[azclock]
+create-initial-widget=false
+update-notifier-project-version=14
+widgets=[{'628f908c-b674-46bf-babd-342b1c12d1d0': <{'enabled': <true>}>}]
+
+[azclock/widget-data/628f908c-b674-46bf-babd-342b1c12d1d0]
+elements=[{'8576ed13-3090-42c4-b289-64b17d104c61': <{'enabled': <true>}>}, {'c4bdad61-9b67-4f4b-afc8-1bdb8a3d2108': <{'enabled': <true>}>}]
+name='Digital Clock Widget'
+
+[azclock/widget-data/628f908c-b674-46bf-babd-342b1c12d1d0/element-data/8576ed13-3090-42c4-b289-64b17d104c61]
+name='Time Label'
+
+[azclock/widget-data/628f908c-b674-46bf-babd-342b1c12d1d0/element-data/c4bdad61-9b67-4f4b-afc8-1bdb8a3d2108]
+date-format='%A %b %d'
+font-size=32
+name='Date Label'
+
+[blur-my-shell]
+settings-version=2
+
+[blur-my-shell/appfolder]
+brightness=0.29999999999999999
+sigma=10
+
+[blur-my-shell/applications]
+blacklist=['Plank', 'com.desktop.ding', 'Conky', 'Brave-browser']
+blur=true
+blur-on-overview=false
+brightness=0.5
+dynamic-opacity=false
+enable-all=false
+opacity=200
+sigma=10
+whitelist=['kitty', 'Gnome-terminal', 'Zathura', 'Rofi', 'zen', 'org.gnome.Nautilus', 'gnome-text-editor', 'Fsearch', 'Zotero']
+
+[blur-my-shell/coverflow-alt-tab]
+pipeline='pipeline_default'
+
+[blur-my-shell/dash-to-dock]
+blur=false
+brightness=0.59999999999999998
+override-background=false
+pipeline='pipeline_default_rounded'
+sigma=30
+static-blur=true
+style-dash-to-dock=0
+
+[blur-my-shell/dash-to-panel]
+blur-original-panel=true
+
+[blur-my-shell/hidetopbar]
+compatibility=false
+
+[blur-my-shell/lockscreen]
+pipeline='pipeline_default'
+
+[blur-my-shell/overview]
+pipeline='pipeline_default'
+
+[blur-my-shell/panel]
+blur=true
+brightness=0.29999999999999999
+force-light-text=false
+override-background=true
+pipeline='pipeline_default'
+sigma=10
+static-blur=false
+style-panel=0
+
+[blur-my-shell/screenshot]
+pipeline='pipeline_default'
+
+[blur-my-shell/window-list]
+brightness=0.59999999999999998
+sigma=30
+
+[color-picker]
+color-history=[uint32 7895129, 1776158, 4857585, 1648475]
+
+[dash-to-dock]
+always-center-icons=true
+animation-time=0.20000000000000001
+apply-custom-theme=true
+autohide=true
+autohide-in-fullscreen=false
+background-opacity=0.80000000000000004
+click-action='minimize-or-previews'
+custom-theme-shrink=true
+dash-max-icon-size=24
+dock-fixed=false
+dock-position='BOTTOM'
+extend-height=false
+height-fraction=0.90000000000000002
+hide-delay=0.20000000000000001
+hot-keys=false
+intellihide=false
+intellihide-mode='ALL_WINDOWS'
+isolate-workspaces=true
+middle-click-action='launch'
+multi-monitor=true
+preferred-monitor=-2
+preferred-monitor-by-connector='eDP-1'
+pressure-threshold=100.0
+require-pressure-to-show=true
+scroll-action='cycle-windows'
+shift-click-action='minimize'
+shift-middle-click-action='launch'
+shortcut=['<Super>q']
+shortcut-text='<Super>q'
+show-delay=0.25
+show-dock-urgent-notify=true
+show-mounts=false
+show-mounts-only-mounted=false
+show-trash=false
+workspace-agnostic-urgent-windows=true
+
+[ding]
+check-x11wayland=true
+show-home=false
+
+[emoji-copy]
+recently-used=['😂', '❤️', '😍', '😭', '😊', '😒', '😘', '😩', '🤔', '☺️', '👌']
+
+[just-perfection]
+accessibility-menu=true
+activities-button=false
+animation=2
+background-menu=true
+clock-menu-position=0
+clock-menu-position-offset=0
+controls-manager-spacing-size=0
+dash=true
+dash-icon-size=0
+double-super-to-appgrid=true
+invert-calendar-column-items=false
+max-displayed-search-results=0
+osd=true
+panel=true
+panel-in-overview=true
+ripple-box=true
+search=true
+show-apps-button=true
+startup-status=1
+support-notifier-showed-time=uint64 1738901193409
+support-notifier-showed-version=34
+support-notifier-type=0
+theme=false
+window-demands-attention-focus=false
+window-picker-icon=true
+window-preview-caption=true
+window-preview-close-button=true
+workspace=true
+workspace-background-corner-size=0
+workspace-popup=true
+workspaces-in-app-grid=true
+
+[miniview]
+hide-on-focus=true
+showme=false
+
+[openbar]
+accent-color=['0.588', '0.647', '0.325']
+accent-override=true
+apply-accent-shell=true
+apply-all-shell=true
+apply-gtk=true
+apply-menu-notif=true
+apply-menu-shell=true
+balpha=0.48999999999999999
+bartype='Mainland'
+bg-change=false
+bgalpha=0.90000000000000002
+bgcolor2=['0.588', '0.647', '0.325']
+bgpalette=true
+bguri='file:///home/rafi/.config/background'
+bradius=5.0
+bwidth=1.0
+candybar=false
+corner-radius=false
+count1=312494
+count10=1716
+count11=55
+count12=29
+count2=121305
+count3=56694
+count4=22393
+count5=21276
+count6=9434
+count7=7930
+count8=5531
+count9=5143
+dark-accent-color=['0.588', '0.647', '0.325']
+dark-bgcolor2=['0.588', '0.647', '0.325']
+dark-bguri='file:///home/rafi/.config/background'
+dark-hcolor=['0.588', '0.647', '0.325']
+dark-hscd-color=['0.588', '0.647', '0.325']
+dark-mhcolor=['0.588', '0.647', '0.325']
+dark-mscolor=['0.588', '0.647', '0.325']
+dark-palette1=['176', '190', '214']
+dark-palette10=['92', '91', '105']
+dark-palette11=['150', '165', '83']
+dark-palette12=['172', '165', '79']
+dark-palette2=['64', '69', '62']
+dark-palette3=['112', '119', '127']
+dark-palette4=['137', '137', '132']
+dark-palette5=['222', '230', '245']
+dark-palette6=['76', '86', '108']
+dark-palette7=['121', '114', '84']
+dark-palette8=['211', '228', '243']
+dark-palette9=['133', '139', '160']
+dark-vw-color=['0.588', '0.647', '0.325']
+dark-winbcolor=['0.588', '0.647', '0.325']
+default-font='Sans 12'
+gradient-direction='horizontal'
+hcolor=['0.588', '0.647', '0.325']
+height=30.0
+hscd-color=['0.588', '0.647', '0.325']
+import-export=false
+light-bguri='file:///home/rafi/.config/background'
+light-palette1=['176', '190', '214']
+light-palette10=['92', '91', '105']
+light-palette11=['150', '165', '83']
+light-palette12=['172', '165', '79']
+light-palette2=['64', '69', '62']
+light-palette3=['112', '119', '127']
+light-palette4=['137', '137', '132']
+light-palette5=['222', '230', '245']
+light-palette6=['76', '86', '108']
+light-palette7=['121', '114', '84']
+light-palette8=['211', '228', '243']
+light-palette9=['133', '139', '160']
+mhcolor=['0.588', '0.647', '0.325']
+monitor-height=768
+monitor-width=1366
+mscolor=['0.588', '0.647', '0.325']
+palette1=['176', '190', '214']
+palette10=['92', '91', '105']
+palette11=['150', '165', '83']
+palette12=['172', '165', '79']
+palette2=['64', '69', '62']
+palette3=['112', '119', '127']
+palette4=['137', '137', '132']
+palette5=['222', '230', '245']
+palette6=['76', '86', '108']
+palette7=['121', '114', '84']
+palette8=['211', '228', '243']
+palette9=['133', '139', '160']
+pause-reload=false
+reloadstyle=false
+set-overview=true
+trigger-reload=true
+vw-color=['0.588', '0.647', '0.325']
+winbcolor=['0.588', '0.647', '0.325']
+
+[pip-on-top]
+stick=true
+
+[search-light]
+animation-speed=100.0
+blur-brightness=0.59999999999999998
+blur-sigma=30.0
+entry-font-size=1
+monitor-count=1
+preferred-monitor=0
+scale-height=0.10000000000000001
+scale-width=0.10000000000000001
+
+[smart-auto-move]
+activate-workspace=true
+debug-logging=false
+freeze-saves=false
+ignore-position=false
+ignore-workspace=false
+match-threshold=0.69999999999999996
+overrides='{}'
+save-frequency=1000
+saved-windows='{}'
+startup-delay=2500
+sync-frequency=100
+sync-mode='RESTORE'
+
+[space-bar/appearance]
+active-workspace-font-weight='700'
+active-workspace-padding-h=4
+active-workspace-padding-v=0
+application-styles='.space-bar {\n  -natural-hpadding: 12px;\n}\n\n.space-bar-workspace-label.active {\n  margin: 0 4px;\n  background-color: rgba(255,255,255,0.3);\n  color: rgba(255,255,255,1);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 0px;\n  padding: 0px 4px;\n}\n\n.space-bar-workspace-label.inactive {\n  margin: 0 4px;\n  background-color: rgba(0,0,0,0);\n  color: rgba(255,255,255,1);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 0px;\n  padding: 0px 4px;\n}\n\n.space-bar-workspace-label.inactive.empty {\n  margin: 0 4px;\n  background-color: rgba(0,0,0,0);\n  color: rgba(255,255,255,0.5);\n  border-color: rgba(0,0,0,0);\n  font-weight: 700;\n  border-radius: 4px;\n  border-width: 0px;\n  padding: 0px 4px;\n}'
+custom-styles-enabled=false
+custom-styles-failed=false
+empty-workspace-font-weight='700'
+empty-workspace-padding-h=4
+empty-workspace-padding-v=0
+inactive-workspace-font-weight='700'
+inactive-workspace-padding-h=4
+inactive-workspace-padding-v=0
+
+[space-bar/behavior]
+always-show-numbers=true
+enable-custom-label=false
+indicator-style='workspaces-bar'
+position='left'
+scroll-wheel='panel'
+smart-workspace-names=false
+system-workspace-indicator=true
+toggle-overview=false
+
+[space-bar/shortcuts]
+back-and-forth=false
+enable-activate-workspace-shortcuts=true
+enable-move-to-workspace-shortcuts=true
+
+[space-bar/state]
+version=34
+
+[status-area-horizontal-spacing]
+hpadding=0
+
+[tactile]
+border-size=8
+col-1=1
+col-2=0
+col-3=0
+gap-size=8
+layout-2-col-2=1
+layout-2-col-3=0
+layout-2-row-2=0
+layout-3-col-3=0
+layout-4-col-0=1
+layout-4-col-3=1
+layout-4-row-0=1
+monitor-0-layout=1
+
+[tiling-assistant]
+activate-layout0=@as []
+activate-layout1=@as []
+activate-layout2=@as []
+activate-layout3=@as []
+active-window-hint=1
+active-window-hint-color='rgb(211,70,21)'
+auto-tile=@as []
+center-window=@as []
+debugging-free-rects=@as []
+debugging-show-tiled-rects=@as []
+default-move-mode=0
+dynamic-keybinding-behavior=0
+import-layout-examples=false
+last-version-installed=46
+maximize-with-gap=false
+overridden-settings={'org.gnome.mutter.edge-tiling': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-left': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-right': <@mb nothing>}
+restore-window=['<Super>Down']
+search-popup-layout=@as []
+single-screen-gap=8
+tile-bottom-half=['<Super>KP_2']
+tile-bottom-half-ignore-ta=@as []
+tile-bottomleft-quarter=['<Super>KP_1']
+tile-bottomleft-quarter-ignore-ta=@as []
+tile-bottomright-quarter=['<Super>KP_3']
+tile-bottomright-quarter-ignore-ta=@as []
+tile-edit-mode=@as []
+tile-left-half=['<Super>Left', '<Super>KP_4']
+tile-left-half-ignore-ta=@as []
+tile-maximize=['<Super>Up', '<Super>KP_5']
+tile-maximize-horizontally=@as []
+tile-maximize-vertically=@as []
+tile-right-half=['<Super>Right', '<Super>KP_6']
+tile-right-half-ignore-ta=@as []
+tile-top-half=['<Super>KP_8']
+tile-top-half-ignore-ta=@as []
+tile-topleft-quarter=['<Super>KP_7']
+tile-topleft-quarter-ignore-ta=@as []
+tile-topright-quarter=['<Super>KP_9']
+tile-topright-quarter-ignore-ta=@as []
+tiling-popup-all-workspace=true
+toggle-always-on-top=@as []
+toggle-tiling-popup=@as []
+window-gap=8
+
+[tophat]
+mount-to-monitor='/'
+
+[user-theme]
+name='Yaru-bark-dark'
+
+[window-title-is-back]
+colored-icon=false
+fixed-width=false
+show-app=false
+show-icon=true
+show-title=false
+
+[workspaces-indicator-by-open-apps]
+apps-all-desaturate=true

@@ -1,0 +1,42 @@
+[/]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/']
+
+[custom-keybindings/custom0]
+binding='<Super>Return'
+command='kitty'
+name='Kitty'
+
+[custom-keybindings/custom1]
+binding='<Super>f'
+command='fsearch'
+name='Fsearch'
+
+[custom-keybindings/custom2]
+binding='<Super>g'
+command='google-chrome'
+name='Google Chrome'
+
+[custom-keybindings/custom3]
+binding='<Super>e'
+command='nautilus'
+name='File Explorer - Nautilus'
+
+[custom-keybindings/custom4]
+binding='<Super>Print'
+command='flameshot gui'
+name='Flameshot'
+
+[custom-keybindings/custom5]
+binding='<Shift><Super>p'
+command='rofi -show drun'
+name='Rofi Launcher'
+
+[custom-keybindings/custom6]
+binding='<Super>b'
+command='brave-browser'
+name='Brave Browser'
+
+[custom-keybindings/custom7]
+binding='<Super>z'
+command='/home/rafi/.config/rofi-zotero/rofi-zotero.py --rofi-args="-i -theme /home/rafi/.config/rofi-zotero/themes/zotero-theme.rasi"'
+name='Zotero Rofi Launcher'

@@ -1,1 +1,18 @@
+# Credentials — never commit
 .git-credentials
+git/.git-credentials
+
+# Private git identity
+git/.gitconfig-private
+
+# Neovim runtime data
+nvim/.config/nvim/sessions/
+
+# btop log
+btop/.config/btop/btop.log
+
+# Backup files
+*.bak
+
+# OS noise
+.DS_Store

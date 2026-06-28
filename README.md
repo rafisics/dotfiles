@@ -43,6 +43,7 @@ Two tools are installed manually (not via apt):
 | `fastfetch` | Fastfetch preset (`os-wm.jsonc`) — used in Screenshot 1 | — |
 | `screenkey` | Screenkey config (`~/.config/screenkey.json`) — font, opacity, position for keyboard overlay gifs | — |
 | `mimeapps` | Default application associations (`~/.config/mimeapps.list`) — Brave for web, etc. | — |
+| `flameshot` | Flameshot screenshot config — save path, filename pattern, draw thickness | — |
 | `wallpaper` | Wallpaper at `~/.config/background` + `~/.local/share/backgrounds/` (1920×1080, resized from original) | — |
 | `i3` | i3 WM *(archived — not stowed on GNOME)* | [Shortcuts](system/KEYBOARD-SHORTCUTS.md#i3-keybindings-archived--not-active-on-gnome) |
 | `polybar` | Polybar *(archived — not stowed on GNOME)* | — |

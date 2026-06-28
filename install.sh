@@ -70,6 +70,7 @@ PACKAGES=(
     fastfetch
     screenkey
     mimeapps
+    flameshot
 )
 
 # WM packages — only stow on i3 machines, skip on GNOME

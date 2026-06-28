@@ -7,7 +7,6 @@ configuration {
     lines:               6;
     fixed-num-lines:     false;
     case-sensitive:      false;
-    markup-rows:         true;
 }
 
 * {
@@ -95,7 +94,6 @@ inputbar {
 listview {
     border:              0px;
     padding:             0px;
-    spacing:             4px;
     scrollbar:           false;
 }
 

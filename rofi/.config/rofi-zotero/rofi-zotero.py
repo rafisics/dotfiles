@@ -12,7 +12,6 @@ Modified to include item type in display and change prompt to Zotero.
 
 import argparse
 import configparser
-import html
 import os
 import re
 import shlex
@@ -34,7 +33,10 @@ DEFAULT_VIEWER = "zathura %u" # xdg-open, zathura
 DEFAULT_PROMPT_PAPER = "Zotero"  # Changed from "paper"
 DEFAULT_PROMPT_ATTACHMENT = "attachment"
 
-_META_COLOR = "#C0B499"
+FORMAT_ITEM = "[{itemType}] {author} ({year}) - {title}"
+FORMAT_ITEM_WITHOUT_YEAR = "[{itemType}] {author} - {title}"
+FORMAT_ITEM_WITHOUT_AUTHOR = "[{itemType}] ({year}) - {title}"
+FORMAT_ITEM_WITHOUT_AUTHOR_AND_YEAR = "[{itemType}] {title}"
 
 FORMAT_AUTHORS_SINGLE = "{author1}"
 FORMAT_AUTHORS_TWO = "{author1} and {author2}"
@@ -148,21 +150,15 @@ def format_path(path, maxlen=80, fullpath=False, ending_fraction=0.5):
     return formatted_path
 
 def format_item(title, author=None, year=None, itemType="Unknown"):
-    t = html.escape(title)
-    it = html.escape(itemType)
-    au = html.escape(author) if author else None
-    yr = html.escape(year) if year else None
-
-    if au and yr:
-        meta = f"[{it}] {au} ({yr})"
-    elif au:
-        meta = f"[{it}] {au}"
-    elif yr:
-        meta = f"[{it}] ({yr})"
+    if author and year:
+        item_string = FORMAT_ITEM.format(title=title, author=author, year=year, itemType=itemType)
+    elif author:
+        item_string = FORMAT_ITEM_WITHOUT_YEAR.format(title=title, author=author, itemType=itemType)
+    elif year:
+        item_string = FORMAT_ITEM_WITHOUT_AUTHOR.format(title=title, year=year, itemType=itemType)
     else:
-        meta = f"[{it}]"
-
-    return f"<span foreground='{_META_COLOR}'>{meta}</span>\n{t}"
+        item_string = FORMAT_ITEM_WITHOUT_AUTHOR_AND_YEAR.format(title=title, itemType=itemType)
+    return item_string
 
 def get_item_info(zotero_sqlite_file, query):
     conn = sqlite3.connect(zotero_sqlite_file)
@@ -340,27 +336,26 @@ def main(
         year = years.get(item_id)
         item_type = item_types.get(item_id, "Unknown")
         item_string = format_item(title=title, author=author, year=year, itemType=item_type)
-        sort_key = (item_type or "", author or "", year or "", title or "")
-        item_list_with_ids.append((sort_key, item_string, item_id))
+        item_list_with_ids.append((item_string, item_id))
 
-    item_list_with_ids.sort(key=lambda x: x[0])
-    item_list = [item for _, item, _ in item_list_with_ids]
-    items_input = "\x00".join(item_list)
+    item_list_with_ids.sort()
+    item_list = [item for item, _ in item_list_with_ids]
+    items_input = "\n".join(item_list)
 
     if list:
         print(items_input)
         return
 
-    rofi_command = ["rofi",
-                    # "-normal-window",
-                    "-dmenu", "-format", "i", "-sep", "\x00"] + rofi_args + ["-p", prompt_paper]
+    rofi_command = ["rofi", 
+                    # "-normal-window", 
+                    "-dmenu", "-format", "i"] + rofi_args + ["-p", prompt_paper]
     rofi = subprocess.run(rofi_command, capture_output=True, text=True, input=items_input)
 
     selected_index = rofi.stdout.strip()
     if not selected_index:
         return
 
-    item_id = item_list_with_ids[int(selected_index)][2]
+    item_id = item_list_with_ids[int(selected_index)][1]
     files_to_open = paths[item_id]
     files_to_open.sort()
 

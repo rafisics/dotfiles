@@ -3,8 +3,10 @@
 # Run: bash install.sh
 #
 # Prerequisites (do these before running):
-#   1. Set up SSH key: ssh-keygen -t ed25519 && cat ~/.ssh/id_ed25519.pub (add to GitHub)
-#   2. Install apt packages: sudo apt install $(cat system/dpkg/manual-packages.txt | tr '\n' ' ')
+#   1. Set up SSH key:    ssh-keygen -t ed25519 && cat ~/.ssh/id_ed25519.pub  (add to GitHub)
+#   2. Install packages:  sudo apt install $(cat system/dpkg/manual-packages.txt | tr '\n' ' ')
+#      (needed before this script runs: cmake gcc g++ make gettext for Neovim build;
+#       fdfind p7zip-full imagemagick for Yazi)
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -95,11 +97,15 @@ cp "$DOTFILES_DIR/wallpaper/.local/share/backgrounds/2025-01-05-05-20-03-sajek-2
    "$HOME/.local/share/backgrounds/2025-01-05-05-20-03-sajek-2024.jpg"
 cp "$DOTFILES_DIR/wallpaper/.local/share/backgrounds/sajek-2024-original.jpg" \
    "$HOME/.local/share/backgrounds/sajek-2024-original.jpg"
-gsettings set org.gnome.desktop.background picture-uri \
-    'file:///'"$HOME"'/.config/background'
-gsettings set org.gnome.desktop.background picture-uri-dark \
-    'file:///'"$HOME"'/.config/background'
-echo "Wallpaper installed."
+if [ -n "$DBUS_SESSION_BUS_ADDRESS" ] && command -v gsettings &>/dev/null; then
+    gsettings set org.gnome.desktop.background picture-uri \
+        'file:///'"$HOME"'/.config/background'
+    gsettings set org.gnome.desktop.background picture-uri-dark \
+        'file:///'"$HOME"'/.config/background'
+    echo "Wallpaper installed and applied."
+else
+    echo "Wallpaper files copied. Apply manually: gsettings set org.gnome.desktop.background picture-uri 'file://$HOME/.config/background'"
+fi
 
 # ── Yazi file manager ───────────────────────────────────────────────────────
 if ! command -v yazi &>/dev/null; then
@@ -112,8 +118,7 @@ if ! command -v yazi &>/dev/null; then
     [ ! -f /usr/local/bin/fd ]    && sudo ln -s "$(which fdfind)" /usr/local/bin/fd
     [ ! -f /usr/local/bin/magick ] && sudo ln -s "$(which convert)" /usr/local/bin/magick
     [ ! -f /usr/local/bin/7zz ]   && sudo ln -s "$(which 7z)" /usr/local/bin/7zz
-    # Catppuccin Mocha theme
-    ya pack -a yazi-rs/flavors:catppuccin-mocha
+    # Catppuccin Mocha flavor is already tracked in dotfiles and stowed above
 fi
 
 # ── LazyGit ─────────────────────────────────────────────────────────────────
@@ -155,7 +160,6 @@ echo "  - Install giph:        https://github.com/phw/giph (gif recorder, shell 
 echo "  - Install Zotero:      download tarball → sudo mv ~/Downloads/Zotero_linux-x86_64/* /opt/zotero/"
 echo "                         sudo /opt/zotero/set_launcher_icon"
 echo "                         ln -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop"
-echo "  - FSearch PPA:         sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable && sudo apt install fsearch"
-echo "  - Set up Python venvs: python3 -m venv ~/.venvs/nvim-env  (for Neovim Mason LSP)"
+echo "  - Set up Python venvs: python3 -m venv ~/.venvs/nvim-env && python3 -m venv ~/.venvs/coding-env"
 echo "  - Set fish as shell:   chsh -s \$(which fish)"
 echo "  - Launch nvim once:    nvim  (lazy.nvim auto-installs all plugins on first run)"

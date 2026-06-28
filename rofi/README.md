@@ -2,7 +2,7 @@
 
 [Rofi](https://github.com/davatorium/rofi) application launcher, configured with a custom theme and integrated with Zotero.
 
-![rofi-zotero demo](https://rafisics.github.io/assets/images/2025-01-24-zotero/rofi-zotero-preview.gif)
+> **TODO:** add screenshot of `rofi -show drun` launcher here
 
 ## Configs
 
@@ -23,6 +23,8 @@
 ## rofi-zotero
 
 Searches your Zotero library and opens PDF/DjVu attachments directly from a rofi popup.
+
+![rofi-zotero demo](images/rofi-zotero-preview.gif)
 
 > For the full Zotero workflow context, see: [Becoming a Zoteroist](https://rafisics.github.io/tools/zotero/)
 

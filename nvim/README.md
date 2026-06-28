@@ -67,9 +67,9 @@ Leader key: `Space`
 
 ## Config switching
 
-Two configs are maintained:
-- **NvChad** (`~/.config/nvim/`) — main config, tracked in this repo
-- **NeoTeX** (`~/.config/nvim.bak/`) — LaTeX-focused config, **not tracked here** (lives only locally)
+Two configs are maintained and both are tracked in this repo:
+- **NvChad** (`~/.config/nvim/`) — this package, general-purpose
+- **NeoTeX** (`~/.config/nvim.bak/`) — see [nvim-bak/README.md](../nvim-bak/README.md), LaTeX-focused, based on [benbrastmckie/nvim](https://github.com/benbrastmckie/nvim)
 
 Switch via fish shell:
 ```fish

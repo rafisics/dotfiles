@@ -19,6 +19,7 @@ Then see [system/KEYBOARD-SHORTCUTS.md](system/KEYBOARD-SHORTCUTS.md) for GNOME 
 | `bash` | `.bashrc`, `.bash_profile`, `.bash_logout`, `.stow-global-ignore` | — |
 | `git` | `.gitconfig` (identity, credential helper) | — |
 | `nvim` | Neovim (NvChad) + `nvim.fish` helper functions | [nvim/README.md](nvim/README.md) |
+| `nvim-bak` | NeoTeX — LaTeX-focused config (benbrastmckie/nvim) | [nvim-bak/README.md](nvim-bak/README.md) |
 | `fish` | Fish shell — config, functions, variables | [fish/README.md](fish/README.md) |
 | `starship` | Three prompt configs, switch with `starships` | [starship/README.md](starship/README.md) |
 | `kitty` | Kitty terminal | — |

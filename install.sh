@@ -19,6 +19,7 @@ PACKAGES=(
     bash
     git
     nvim
+    nvim-bak
     fish
     starship
     kitty

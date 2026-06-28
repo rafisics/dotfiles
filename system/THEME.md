@@ -27,7 +27,7 @@ sudo apt install fonts-ubuntu
 
 ### 2. Restore wallpaper
 
-The wallpaper is tracked in `dotfiles/wallpaper/` and stowed automatically by `install.sh`.
+The wallpaper is tracked in `dotfiles/wallpaper/` and **copied** (not symlinked) by `install.sh` — GNOME does not follow symlinks for wallpapers.
 It will appear at:
 - `~/.config/background` — 1920×1080, used by Blur My Shell and other extensions
 - `~/.local/share/backgrounds/2025-01-05-05-20-03-sajek-2024.jpg` — 1920×1080, used by GNOME background settings

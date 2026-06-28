@@ -27,7 +27,6 @@ PACKAGES=(
     zathura
     yazi
     btop
-    wallpaper
 )
 
 # WM packages — only stow on i3 machines, skip on GNOME
@@ -43,6 +42,21 @@ echo ""
 echo "Note: i3/polybar/picom are NOT stowed by default (GNOME machine)."
 echo "      To enable: stow -d $DOTFILES_DIR -t \$HOME i3 polybar picom"
 
+# ── Wallpaper — copied, not symlinked (GNOME doesn't follow symlinks) ────────
+echo ""
+echo "Installing wallpaper..."
+mkdir -p "$HOME/.local/share/backgrounds"
+cp "$DOTFILES_DIR/wallpaper/.config/background" "$HOME/.config/background"
+cp "$DOTFILES_DIR/wallpaper/.local/share/backgrounds/2025-01-05-05-20-03-sajek-2024.jpg" \
+   "$HOME/.local/share/backgrounds/2025-01-05-05-20-03-sajek-2024.jpg"
+cp "$DOTFILES_DIR/wallpaper/.local/share/backgrounds/sajek-2024-original.jpg" \
+   "$HOME/.local/share/backgrounds/sajek-2024-original.jpg"
+gsettings set org.gnome.desktop.background picture-uri \
+    'file:///'"$HOME"'/.config/background'
+gsettings set org.gnome.desktop.background picture-uri-dark \
+    'file:///'"$HOME"'/.config/background'
+echo "Wallpaper installed."
+
 # ── Private git identity ────────────────────────────────────────────────────
 if [ ! -f "$HOME/.gitconfig-private" ]; then
     echo ""
@@ -55,6 +69,6 @@ echo ""
 echo "✓ Dotfiles installed. Next steps:"
 echo "  - Install packages:    see system/dpkg/manual-packages.txt"
 echo "  - Restore GNOME keys:  see system/KEYBOARD-SHORTCUTS.md"
-echo "  - Restore GNOME theme: dconf load /org/gnome/ < system/gnome/full-settings.dconf"
+echo "  - Restore GNOME theme: see system/THEME.md"
 echo "  - Set up Python venvs: ~/.venvs/coding-env  and  ~/.venvs/nvim-env"
 echo "  - Set fish as shell:   chsh -s \$(which fish)"

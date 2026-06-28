@@ -1,0 +1,86 @@
+# Neovim config
+
+Built on [NvChad](https://nvchad.com/) v2. Entry point: `.config/nvim/init.lua`.
+
+![Neovim + Zathura setup](images/screenshot-nvim-zathura.png)
+
+## Plugins
+
+| Plugin | Purpose |
+|---|---|
+| **nvim-lspconfig** + **mason.nvim** | LSP — lua, texlab/bibtex-tidy |
+| **conform.nvim** | Formatting |
+| **nvim-treesitter** | Syntax highlighting |
+| **nvim-cmp** + **LuaSnip** | Completion + snippets |
+| **vimtex** | LaTeX editing (compile, synctex, cmp source) |
+| **gitsigns.nvim** | Git diff in gutter |
+| **lazygit.nvim** | LazyGit TUI inside nvim |
+| **alpha.nvim** | Dashboard |
+| **snacks.nvim** | Image previews, notifier, picker |
+| **toggleterm.nvim** | Floating terminal (fish shell) |
+| **yazi.nvim** | Yazi file manager inside nvim |
+| **nvim-surround** | Surround motions |
+| **nvim-autopairs** | Auto-close brackets |
+| **Comment.nvim** | Line/block comments |
+| **which-key.nvim** | Keymap popup |
+| **yanky.nvim** | Yank ring history |
+| **nvim-colorizer** | Inline colour previews |
+| **local-highlight.nvim** | Highlight word under cursor |
+| **dressing.nvim** | Better `vim.ui` popups |
+| **minimap.vim** | Code minimap sidebar |
+| **sessions (persisted)** | Auto-save/restore sessions |
+| **showkeys.nvim** | Live keypress display |
+
+## Key mappings
+
+Leader key: `Space`
+
+### Navigation
+| Key | Action |
+|---|---|
+| `Ctrl+h/j/k/l` | Move between windows |
+| `Tab` / `Shift+Tab` | Next / previous buffer |
+| `Shift+H` / `Shift+L` | Line start / end (display) |
+| `j` / `k` | Move by display line (wraps) |
+| `m` | Scroll cursor to top of view |
+| `Ctrl+U` / `Ctrl+D` | Half-page scroll, centered |
+| `E` | Move back to end of previous word |
+
+### Editing
+| Key | Action |
+|---|---|
+| `<` / `>` | Indent/dedent (normal + visual, stays in mode) |
+| `Alt+J` / `Alt+K` | Move line(s) down/up |
+| `Alt+Left/Right` | Resize split |
+| `Ctrl+/` | Toggle comment |
+| `Enter` | Clear search highlight |
+
+### Tools
+| Key | Action |
+|---|---|
+| `Ctrl+P` | Telescope file finder |
+| `Ctrl+\`` | Float terminal (fish, in file dir) |
+| `Shift+T` | Toggle transparency |
+| `Space mm` | Toggle minimap |
+| `Shift+M` | Open help for word under cursor |
+
+## Config switching
+
+Two configs are maintained:
+- **NvChad** (`~/.config/nvim/`) — main config
+- **NeoTeX** (`~/.config/nvim.bak/`) — LaTeX-focused config
+
+Switch via fish shell:
+```fish
+nvims        # fzf picker: NvChad or NeoTeX
+nvim-tex     # launch NeoTeX directly
+Ctrl+A       # quick nvims picker from any prompt
+```
+
+## Screenshots
+
+| | |
+|---|---|
+| ![nvim+zathura](images/screenshot-nvim-zathura.png) | ![no padding](images/screenshot-nvim-zathura-no-padding.png) |
+| ![cite](images/screenshot_cite.png) | ![main](images/screenshot.png) |
+| ![VimExcavator](images/VimExcavator.png) | ![VimType](images/VimType.png) |

@@ -24,6 +24,8 @@
 
 Searches your Zotero library and opens PDF/DjVu attachments directly from a rofi popup.
 
+> Fork of [hanschen/rofi-zotero](https://github.com/hanschen/rofi-zotero). Modified to include item type prefix in the display format and a custom earthy theme.
+
 ![rofi-zotero demo](images/rofi-zotero-preview.gif)
 
 > For the full Zotero workflow context, see: [Becoming a Zoteroist](https://rafisics.github.io/tools/zotero/)

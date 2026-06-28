@@ -65,6 +65,32 @@ Leader key: `Space`
 | `Space mm` | Toggle minimap |
 | `Shift+M` | Open help for word under cursor |
 
+### Leader key (`Space`) — single keys
+| Key | Action |
+|---|---|
+| `Space b` | VimTeX compile |
+| `Space c` | Create vertical split |
+| `Space d` | Delete buffer |
+| `Space e` | Toggle file explorer (NvimTree) |
+| `Space i` | VimTeX table of contents |
+| `Space j` | Close split |
+| `Space k` | Maximize split |
+| `Space q` | Quit all |
+| `Space v` | VimTeX view PDF |
+| `Space w` | Save all |
+
+### Leader submenus
+| Prefix | Menu | Actions |
+|---|---|---|
+| `Space a` | ACTIONS | `a` annotate, `b` bib export, `c` clear vimtex, `f` format, `h` highlight toggle, `k` kill aux, `r` report errors, `u` update cwd, `v` vimtex menu, `w` word count |
+| `Space f` | FIND | `b` buffers, `f` project grep, `g` git history, `h` help, `k` keymaps, `r` registers, `t` theme, `y` yanks |
+| `Space g` | GIT | `b` checkout branch, `d` diff, `g` lazygit, `j` next hunk, `k` prev hunk, `l` line blame, `p` preview hunk, `t` toggle blame |
+| `Space l` | LSP | `b` buffer diagnostics, `c` code action, `d` definition, `D` declaration, `h` hover, `i` implementations, `k` kill lsp, `l` line diagnostics, `n` next diagnostic, `p` prev diagnostic, `r` references, `R` rename, `s` restart lsp, `t` start lsp |
+| `Space m` | MINIMAP | `m` toggle |
+| `Space s` | SURROUND | `s` surround, `d` delete, `c` change |
+| `Space S` | SESSIONS | `s` save, `d` delete, `l` load |
+| `Space y` | YAZI | `y` current file, `w` open in cwd |
+
 ## Config switching
 
 Two configs are maintained and both are tracked in this repo:

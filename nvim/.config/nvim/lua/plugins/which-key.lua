@@ -218,6 +218,15 @@ return {
       --   name = "MARKDOWN",
       --   v = { "<cmd>Slides<CR>", "view slides" },
       -- },
+      m = {
+        name = "MINIMAP",
+        m = { "<cmd>MinimapToggle<CR>", "toggle" },
+      },
+      y = {
+        name = "YAZI",
+        y = { "<cmd>Yazi<cr>", "current file" },
+        w = { "<cmd>Yazi cwd<cr>", "open cwd" },
+      },
       S = {
         name = "SESSIONS",
         s = { "<cmd>SessionManager save_current_session<CR>", "save" },

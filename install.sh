@@ -198,7 +198,7 @@ if command -v codium &>/dev/null; then
         ms-vscode.cpptools-themes
         ms-vscode.makefile-tools
         naumovs.color-highlight
-        nd2204.gruvbox-material-mix
+        # nd2204.gruvbox-material-mix  # installed from local .vsix below (not on Open VSX)
         patbenatar.advanced-new-file
         piotrpalarz.vscode-gitignore-generator
         redhat.vscode-yaml
@@ -215,6 +215,9 @@ if command -v codium &>/dev/null; then
         codium --install-extension "$ext" --force 2>/dev/null \
             || echo "  ⚠  skipped (not on Open VSX): $ext"
     done
+    # Local .vsix installs (not available on Open VSX)
+    codium --install-extension "$DOTFILES_DIR/vsix/nd2204.gruvbox-material-mix-0.2.5.vsix" --force 2>/dev/null \
+        || echo "  ⚠  failed to install local vsix: nd2204.gruvbox-material-mix"
 fi
 
 # ── my-scripts ──────────────────────────────────────────────────────────────

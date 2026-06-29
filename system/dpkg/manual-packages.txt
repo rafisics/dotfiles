@@ -10,7 +10,6 @@ clamav
 cloudflare-warp
 cmake
 cmatrix
-code
 codium
 curl
 dash

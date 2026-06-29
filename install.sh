@@ -2,30 +2,22 @@
 # Bootstrap dotfiles on a fresh machine.
 # Run: bash install.sh
 #
-# Prerequisites (do these before running):
-#   1. Set up SSH key:    ssh-keygen -t ed25519 && cat ~/.ssh/id_ed25519.pub  (add to GitHub)
-#   2. Install packages:  sudo apt install $(cat system/dpkg/manual-packages.txt | tr '\n' ' ')
-#      (needed before this script runs: cmake gcc g++ make gettext for Neovim build;
-#       fdfind p7zip-full imagemagick for Yazi)
+# Prerequisite: set up SSH key first:
+#   ssh-keygen -t ed25519 && cat ~/.ssh/id_ed25519.pub  (add to GitHub)
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# ── Dependencies ────────────────────────────────────────────────────────────
-if ! command -v stow &>/dev/null; then
-    echo "Installing GNU Stow..."
-    sudo apt install -y stow
-fi
+# ── External apt repos ──────────────────────────────────────────────────────
+# All third-party repos added here so apt-get update picks them up in one pass
 
-# FSearch — not in standard Ubuntu repos, needs PPA
+# FSearch
 if ! command -v fsearch &>/dev/null; then
     echo "Adding FSearch PPA..."
     sudo add-apt-repository -y ppa:christian-boxdoerfer/fsearch-stable
-    sudo apt update -qq
-    sudo apt install -y fsearch
 fi
 
-# Brave Browser — needs GPG key + apt source
+# Brave Browser
 if ! command -v brave-browser &>/dev/null; then
     echo "Adding Brave Browser repo..."
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg \
@@ -33,13 +25,45 @@ if ! command -v brave-browser &>/dev/null; then
     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] \
         https://brave-browser-apt-release.s3.brave.com/ stable main" \
         | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-    sudo apt update -qq
-    sudo apt install -y brave-browser
 fi
 
+# VSCodium
+if ! command -v codium &>/dev/null; then
+    echo "Adding VSCodium repo..."
+    wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+        | gpg --dearmor \
+        | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+    echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
+        | sudo tee /etc/apt/sources.list.d/vscodium.list
+fi
+
+# ── Apt packages ────────────────────────────────────────────────────────────
+# Includes build deps (cmake, gcc, make, gettext for Neovim) and
+# runtime deps (fd-find, p7zip, imagemagick for Yazi) — must run before those.
+echo ""
+echo "Updating package lists..."
+sudo apt-get update -qq
+
+echo "Installing packages from system/dpkg/manual-packages.txt..."
+PKGS=$(grep -v '^#\|^[[:space:]]*$' "$DOTFILES_DIR/system/dpkg/manual-packages.txt" | tr '\n' ' ')
+
+# Try bulk install first; fall back to per-package to skip unavailable ones
+# (packages needing unlisted repos — cloudflare-warp, google-chrome, dropbox, etc. — are skipped)
+if ! sudo apt-get install -y $PKGS 2>/dev/null; then
+    echo "  Retrying individually to skip unavailable packages..."
+    while IFS= read -r pkg; do
+        [[ -z "$pkg" || "$pkg" =~ ^# ]] && continue
+        sudo apt-get install -y "$pkg" >/dev/null 2>&1 \
+            || echo "  ⚠  skipped (repo not set up or unavailable): $pkg"
+    done < "$DOTFILES_DIR/system/dpkg/manual-packages.txt"
+fi
+
+# ── Non-apt tools ───────────────────────────────────────────────────────────
+# Neovim and Starship come after apt so cmake/gcc/curl are guaranteed available
+
 if ! command -v nvim &>/dev/null; then
+    echo ""
     echo "Installing Neovim (build from stable source)..."
-    # Requires: cmake gcc g++ make gettext (install apt packages first)
     git clone https://github.com/neovim/neovim ~/neovim
     cd ~/neovim && git checkout stable
     make CMAKE_BUILD_TYPE=RelWithDebInfo
@@ -108,21 +132,24 @@ else
 fi
 
 # ── Yazi file manager ───────────────────────────────────────────────────────
+# fd-find, imagemagick, 7zip installed via apt above — create expected binary names
 if ! command -v yazi &>/dev/null; then
+    echo ""
     echo "Installing Yazi..."
     wget -qO yazi.zip https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.zip
     unzip -q yazi.zip -d yazi-temp
     sudo mv yazi-temp/*/yazi yazi-temp/*/ya /usr/local/bin/
     rm -rf yazi-temp yazi.zip
-    # Required symlinks for yazi dependencies (Ubuntu uses different binary names)
-    [ ! -f /usr/local/bin/fd ]    && sudo ln -s "$(which fdfind)" /usr/local/bin/fd
-    [ ! -f /usr/local/bin/magick ] && sudo ln -s "$(which convert)" /usr/local/bin/magick
-    [ ! -f /usr/local/bin/7zz ]   && sudo ln -s "$(which 7z)" /usr/local/bin/7zz
-    # Catppuccin Mocha flavor is already tracked in dotfiles and stowed above
 fi
+# Symlinks for Ubuntu's differently-named binaries (idempotent)
+[ ! -f /usr/local/bin/fd ]     && command -v fdfind  &>/dev/null && sudo ln -s "$(which fdfind)"  /usr/local/bin/fd
+[ ! -f /usr/local/bin/magick ] && command -v convert &>/dev/null && sudo ln -s "$(which convert)" /usr/local/bin/magick
+[ ! -f /usr/local/bin/7zz ]    && command -v 7z      &>/dev/null && sudo ln -s "$(which 7z)"      /usr/local/bin/7zz
+# Catppuccin Mocha flavor is already tracked in dotfiles and stowed above
 
 # ── LazyGit ─────────────────────────────────────────────────────────────────
 if ! command -v lazygit &>/dev/null; then
+    echo ""
     echo "Installing LazyGit..."
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" \
         | grep -Po '"tag_name": "v\K[^"]*')
@@ -133,7 +160,64 @@ if ! command -v lazygit &>/dev/null; then
     rm /tmp/lazygit.tar.gz /tmp/lazygit
 fi
 
-# ── my-scripts ─────────────────────────────────────────────────────────────
+# ── VSCodium extensions ─────────────────────────────────────────────────────
+# Some ms-* / github.* extensions are Microsoft-marketplace-only and may not
+# be available on Open VSX — those will print a warning and be skipped.
+if command -v codium &>/dev/null; then
+    echo ""
+    echo "Installing VSCodium extensions..."
+    CODIUM_EXTENSIONS=(
+        adam-bender.commit-message-editor
+        alefragnani.project-manager
+        anthropic.claude-code
+        asvetliakov.vscode-neovim
+        ban.spellright
+        codezombiech.gitignore
+        donjayamanne.git-extension-pack
+        donjayamanne.githistory
+        eamodio.gitlens
+        efoerster.texlab
+        felipecaputo.git-project-manager
+        formulahendry.code-runner
+        github.vscode-pull-request-github
+        james-yu.latex-workshop
+        jdinhlife.gruvbox
+        magicstack.magicpython
+        mblode.zotero
+        mhutchie.git-graph
+        mjpvs.latex-previewer
+        ms-python.debugpy
+        ms-python.isort
+        ms-python.python
+        ms-python.vscode-python-envs
+        ms-toolsai.jupyter
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.jupyter-renderers
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
+        ms-vscode.cpptools-themes
+        ms-vscode.makefile-tools
+        naumovs.color-highlight
+        nd2204.gruvbox-material-mix
+        patbenatar.advanced-new-file
+        piotrpalarz.vscode-gitignore-generator
+        redhat.vscode-yaml
+        rickaym.manim-sideview
+        ritwickdey.liveserver
+        ryuta46.multi-command
+        streetsidesoftware.code-spell-checker
+        tecosaur.latex-utilities
+        wesbos.theme-cobalt2
+        zokugun.cron-tasks
+        zokugun.sync-settings
+    )
+    for ext in "${CODIUM_EXTENSIONS[@]}"; do
+        codium --install-extension "$ext" --force 2>/dev/null \
+            || echo "  ⚠  skipped (not on Open VSX): $ext"
+    done
+fi
+
+# ── my-scripts ──────────────────────────────────────────────────────────────
 if [ ! -d "$HOME/github/my-scripts" ]; then
     echo ""
     echo "Cloning my-scripts..."
@@ -151,7 +235,6 @@ fi
 
 echo ""
 echo "✓ Dotfiles installed. Next steps:"
-echo "  - Install packages:    sudo apt install \$(cat system/dpkg/manual-packages.txt | tr '\n' ' ')"
 echo "  - Install GNOME exts:  use Extension Manager app (install BEFORE running dconf restore)"
 echo "  - Restore GNOME theme: dconf load / < system/gnome/full-settings.dconf  (see system/THEME.md)"
 echo "  - Restore GNOME keys:  see system/KEYBOARD-SHORTCUTS.md (or: load_gnome_settings in fish)"
@@ -160,6 +243,8 @@ echo "  - Install giph:        https://github.com/phw/giph (gif recorder, shell 
 echo "  - Install Zotero:      download tarball → sudo mv ~/Downloads/Zotero_linux-x86_64/* /opt/zotero/"
 echo "                         sudo /opt/zotero/set_launcher_icon"
 echo "                         ln -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop"
+echo "  - Manual installs:     cloudflare-warp, google-chrome, dropbox, zoom, deskreen, rustdesk"
+echo "                         (these need separate repos/downloads — see their official sites)"
 echo "  - Set up Python venvs: python3 -m venv ~/.venvs/nvim-env && python3 -m venv ~/.venvs/coding-env"
 echo "  - Set fish as shell:   chsh -s \$(which fish)"
 echo "  - Launch nvim once:    nvim  (lazy.nvim auto-installs all plugins on first run)"
